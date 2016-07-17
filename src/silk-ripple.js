@@ -18,7 +18,7 @@ function start (event, isRippleTouchGenerated) {
   this.shadowRoot.children[1].appendChild(circle)
 
   const end = () => {
-    var player = fade(circle, 0.1, 0)
+    var player = fade(circle, 0.2, 0, { duration: 600 })
 
     player.onfinish = () => self.shadowRoot.children[1].removeChild(circle)
     player.play()
