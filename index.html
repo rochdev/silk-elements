@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+
+  <style>
+    body {
+      font-family: Roboto, sans-serif;
+    }
+
+    silk-button.primary {
+      --silk-button-color: var(--silk-blue-500);
+    }
+
+    silk-button[raised].primary {
+      --silk-button-background: var(--silk-blue-500);
+      --silk-button-color: white;
+    }
+  </style>
+</head>
+<body>
+  <h3>Flat</h3>
+
+  <silk-button>
+    Default
+  </silk-button>
+
+  <silk-button class="primary">
+    Primary
+  </silk-button>
+
+  <silk-button disabled class="primary">
+    Disabled
+  </silk-button>
+
+  <h3>Raised</h3>
+
+  <silk-button raised>
+    Default
+  </silk-button>
+
+  <silk-button raised class="primary">
+    Primary
+  </silk-button>
+
+  <silk-button raised disabled class="primary">
+    Disabled
+  </silk-button>
+
+  <script src="dist/silk.js"></script>
+</body>
+</html>

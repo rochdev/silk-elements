@@ -1,0 +1,17 @@
+{
+  "parser"  : "babel-eslint",
+  "extends" : [
+    "standard"
+  ],
+  "plugins": [
+    "babel"
+  ],
+  "env"     : {
+    "browser" : true
+  },
+  "rules": {
+    "max-len": [2, 120, 2],
+    "no-console": 2,
+    "no-path-concat": 0
+  }
+}
