@@ -24,21 +24,7 @@ function render () {
 
   ripple.innerHTML = '<content></content>'
 
-  if (this.getAttribute('raised') !== null) {
-    this.addEventListener('mousedown', lift)
-    this.addEventListener('mouseup', drop)
-    this.addEventListener('mouseleave', drop)
-  }
-
   shadow.appendChild(button)
-}
-
-function lift () {
-  this.style.boxShadow = 'var(--silk-elevation-8dp)'
-}
-
-function drop () {
-  this.style.boxShadow = 'var(--silk-elevation-2dp)'
 }
 
 export default document.registerElement('silk-button', {

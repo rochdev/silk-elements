@@ -17,6 +17,10 @@
   box-shadow: var(--silk-elevation-2dp);
 }
 
+:host([raised]:active) {
+  box-shadow: var(--silk-elevation-8dp);
+}
+
 :host([disabled]) {
   pointer-events: none;
   color: rgba(0, 0, 0, 0.26);
