@@ -9,7 +9,6 @@
   border-radius: 2px;
   display: inline-block;
   min-width: 88px;
-  margin: 12px;
 }
 
 :host([raised]) {
