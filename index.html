@@ -6,6 +6,9 @@
 
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
 
+  <script src="node_modules/webcomponents.js/webcomponents.js"></script>
+  <script src="node_modules/web-animations-js/web-animations.min.js"></script>
+
   <style>
     body {
       font-family: Roboto, sans-serif;
@@ -23,13 +26,32 @@
       --silk-button-background: var(--silk-blue-500);
       --silk-button-color: white;
     }
+
+    silk-input.primary {
+      --silk-input-focus-color: var(--silk-blue-500);
+    }
+
+    .ripple-demo {
+      width: 200px;
+      height: 60px;
+      background: #fafafa;
+      border: 1px solid #eee;
+      position: relative;
+      line-height: 60px;
+      text-align: center;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -webkit-user-select: none;
+      user-select: none;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
-  <h3>Flat</h3>
+  <h3>&lt;silk-button&gt;</h3>
 
   <silk-button>
-    Default
+    Flat
   </silk-button>
 
   <silk-button class="primary">
@@ -40,10 +62,10 @@
     Disabled
   </silk-button>
 
-  <h3>Raised</h3>
+  <br>
 
   <silk-button raised>
-    Default
+    Raised
   </silk-button>
 
   <silk-button raised class="primary">
@@ -53,6 +75,18 @@
   <silk-button raised disabled class="primary">
     Disabled
   </silk-button>
+
+  <h3>&lt;silk-input&gt;</h3>
+
+  <silk-input label="foo" value="bar"></silk-input>
+
+  <h3>&lt;silk-ripple&gt;</h3>
+
+  <div class="ripple-demo">
+    <silk-ripple>
+      Click me
+    </silk-ripple>
+  </div>
 
   <script src="dist/silk.js"></script>
 </body>

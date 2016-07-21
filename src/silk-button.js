@@ -19,12 +19,12 @@ function render () {
 
   button.disabled = this.getAttribute('disabled') !== null
   button.type = this.getAttribute('type') || 'button'
-  button.appendChild(ripple)
-  button.appendChild(overlay)
+  ripple.appendChild(button)
+  ripple.appendChild(overlay)
 
-  ripple.innerHTML = '<content></content>'
+  button.innerHTML = '<content></content>'
 
-  shadow.appendChild(button)
+  shadow.appendChild(ripple)
 }
 
 export default document.registerElement('silk-button', {

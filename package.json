@@ -44,6 +44,8 @@
     "uglifyify": "^3.0.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.7.0"
+    "watchify": "^3.7.0",
+    "web-animations-js": "^2.2.1",
+    "webcomponents.js": "^0.7.22"
   }
 }
