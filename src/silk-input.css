@@ -3,7 +3,7 @@
   font-size: 16px;
   line-height: 24px;
   width: 256px;
-  height: 72px;
+  height: 48px;
   display: inline-block;
   position: relative;
   font-family: Roboto, sans-serif;
@@ -11,18 +11,33 @@
   background-color: transparent;
 }
 
-#label {
+:host([label]) {
+  height: 72px;
+}
+
+:host([label]) #input {
+  margin-top: 14px;
+}
+
+:host([label]) #hint {
+  margin-top: 25px;
+}
+
+#label, #hint {
   position: absolute;
   line-height: 22px;
-  top: 38px;
   transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
   z-index: 1;
   cursor: text;
+  pointer-events: none;
+  -webkit-user-select: none;
+}
+
+#label {
+  color: rgba(0, 0, 0, 0.298039);
+  top: 38px;
   transform: scale(1) translate3d(0px, 0px, 0px);
   transform-origin: left top 0px;
-  pointer-events: none;
-  color: rgba(0, 0, 0, 0.298039);
-  -webkit-user-select: none;
 }
 
 #label.floating {
@@ -31,6 +46,16 @@
 
 #label.active {
   color: var(--silk-input-focus-color);
+}
+
+#hint {
+  color: black;
+  opacity: 0;
+  top: 13px;
+}
+
+#hint.visible {
+  opacity: 0.298039;
 }
 
 #input {
@@ -51,7 +76,6 @@
   font-family: inherit;
   height: 100%;
   box-sizing: border-box;
-  margin-top: 14px;
   background-color: rgba(0, 0, 0, 0);
 }
 
