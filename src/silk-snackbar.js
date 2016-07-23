@@ -31,11 +31,12 @@ function render () {
         const event = new CustomEvent(open ? 'open' : 'close', {})
 
         this.dispatchEvent(event)
+        console.log(message.offsetHeight)
 
         posPlayer.playbackRate = open ? 1 : -1
         posPlayer.play()
 
-        open ? fadePlayer.play() : fadePlayer.finish()
+        open && fadePlayer.play()
       }
     },
 
