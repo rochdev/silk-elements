@@ -10,6 +10,10 @@
   display: inline-block;
   min-width: 88px;
   position: relative;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 :host([raised]) {
@@ -65,7 +69,7 @@ button {
   cursor: pointer;
   text-decoration: none;
   margin: 0;
-  padding: 0;
+  padding: 0 16px;
   outline: none;
   font-size: inherit;
   font-weight: inherit;
