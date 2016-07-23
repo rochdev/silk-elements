@@ -1,0 +1,46 @@
+:host {
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 0 12px;
+  background-color: #323232;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transform: translate3d(0, 48px, 0);
+}
+
+#container {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  max-height: 80px;
+  opacity: 0;
+}
+
+#message {
+  flex: 1;
+  padding: 0 12px;
+}
+
+#action {
+  padding: 0 12px;
+}
+
+#button {
+  min-width: initial;
+  margin: 0 -16px 0 0;
+  --silk-button-color: var(--silk-snackbar-action-color, white);
+}
+
+@media (min-width: 600px) {
+  :host {
+    min-width: 288px;
+    max-width: 568px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+  }
+}

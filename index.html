@@ -7,7 +7,7 @@
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
 
   <script src="node_modules/webcomponents.js/webcomponents.js"></script>
-  <script src="node_modules/web-animations-js/web-animations.min.js"></script>
+  <script src="node_modules/web-animations-js/web-animations-next.min.js"></script>
 
   <style>
     body {
@@ -96,6 +96,26 @@
     </silk-ripple>
   </div>
 
+  <h3>&lt;silk-snackbar&gt;</h3>
+
+  <silk-button id="show-snackbar">
+    Toggle
+  </silk-button>
+
+  <silk-snackbar id="snackbar-1" message="Testing content" action="undo"></silk-snackbar>
+
   <script src="dist/silk.js"></script>
+
+  <script>
+    var snackbar = document.getElementById('snackbar-1')
+
+    snackbar.addEventListener('accept', function(e) {
+      snackbar.open = false
+    })
+
+    document.getElementById('show-snackbar').addEventListener('click', function() {
+      snackbar.open = !snackbar.open
+    })
+  </script>
 </body>
 </html>
