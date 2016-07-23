@@ -6,7 +6,7 @@ export const scale = (element, from = 0, to = 1, options) => {
     {transform: `scale(${to})`, offset: 1}
   ], assign({
     easing: 'ease-out',
-    duration: 300,
+    duration: 250,
     fill: 'both'
   }, options))
 }
@@ -17,7 +17,7 @@ export const fade = (element, from = 0, to = 1, options) => {
     {opacity: to, offset: 1}
   ], assign({
     easing: 'ease-out',
-    duration: 300,
+    duration: 250,
     fill: 'both'
   }, options))
 }
