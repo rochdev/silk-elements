@@ -21,3 +21,16 @@ export const fade = (element, from = 0, to = 1, options) => {
     fill: 'both'
   }, options))
 }
+
+export const jump = (element, from = [0, 0, 0], to = [0, 0, 0], options) => {
+  const frames = new KeyframeEffect(element, [
+    { transform: `translate3d(${from.map(val => val + 'px').join(',')})` },
+    { transform: `translate3d(${to.map(val => val + 'px').join(',')})` }
+  ], assign({
+    easing: 'ease-out',
+    duration: 225,
+    fill: 'both'
+  }, options))
+
+  return new Animation(frames, document.timeline)
+}
