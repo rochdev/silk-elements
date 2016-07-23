@@ -1,4 +1,4 @@
-import { css } from './utils/'
+import { css, dom } from './utils/'
 
 const fs = require('fs')
 
@@ -69,7 +69,7 @@ function render () {
 
   function refresh () {
     setTimeout(() => {
-      const showHint = !self.value && (!self.label || isFocus(self, input))
+      const showHint = !self.value && (!self.label || dom.isFocus(self, input))
       hint.classList[showHint ? 'add' : 'remove']('visible')
     })
   }
@@ -94,10 +94,6 @@ function createElement (tagName, id) {
 
 function toggleFloatingLabel (value) {
   this.classList[value ? 'add' : 'remove']('floating')
-}
-
-function isFocus (element, fallback) {
-  return document.activeElement === element || window.unwrap && document.activeElement === window.unwrap(fallback)
 }
 
 export default document.registerElement('silk-input', {
