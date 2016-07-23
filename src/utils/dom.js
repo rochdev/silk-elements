@@ -16,5 +16,9 @@ export default {
       top: rect.top + document.body.scrollTop,
       left: rect.left + document.body.scrollLeft
     }
+  },
+
+  isFocus (element, fallback) {
+    return document.activeElement === element || window.unwrap && document.activeElement === window.unwrap(fallback)
   }
 }
