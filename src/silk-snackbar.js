@@ -31,7 +31,6 @@ function render () {
         const event = new CustomEvent(open ? 'open' : 'close', {})
 
         this.dispatchEvent(event)
-        console.log(message.offsetHeight)
 
         posPlayer.playbackRate = open ? 1 : -1
         posPlayer.play()
