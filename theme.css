@@ -20,5 +20,5 @@ silk-input.primary {
 }
 
 silk-snackbar.primary {
-  --silk-snackbar-action-color: var(--silk-blue-400);
+  --silk-snackbar-action-color: var(--silk-blue-500);
 }

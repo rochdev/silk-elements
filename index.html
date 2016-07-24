@@ -17,6 +17,10 @@
       margin: 12px;
     }
 
+    silk-input {
+      margin: 12px;
+    }
+
     .ripple-demo {
       width: 200px;
       height: 60px;
@@ -84,24 +88,40 @@
 
   <h3>&lt;silk-snackbar&gt;</h3>
 
-  <silk-button raised id="show-snackbar">
+  <silk-input class="primary" label="Message" value="Lorem ipsum dolor sit amet" id="snackbar-message"></silk-input>
+  <silk-input class="primary" label="Action" value="Undo" id="snackbar-action"></silk-input>
+  <silk-input class="primary" label="Duration" value="0" id="snackbar-duration"></silk-input>
+
+  <br>
+
+  <silk-button raised id="snackbar-toggle">
     Toggle
   </silk-button>
 
-  <silk-snackbar id="snackbar-1" class="primary" message="Testing content" action="undo"></silk-snackbar>
+  <silk-snackbar id="snackbar-1" duration="0" class="primary" message="Testing content" action="undo"></silk-snackbar>
 
   <script src="dist/silk.js"></script>
 
   <script>
-    var snackbar = document.getElementById('snackbar-1')
+    window.addEventListener('WebComponentsReady', function(e) {
+      var snackbar = document.getElementById('snackbar-1')
+      var snackbarMessage = document.getElementById('snackbar-message')
+      var snackbarAction = document.getElementById('snackbar-action')
+      var snackbarDuration = document.getElementById('snackbar-duration')
+      var snackbarToggle = document.getElementById('snackbar-toggle')
 
-    snackbar.addEventListener('accept', function(e) {
-      snackbar.open = false
-    })
+      setTimeout(function() {
+        snackbar.message = snackbarMessage.value
+        snackbar.action = snackbarAction.value
+        snackbar.duration = snackbarDuration.value
+      }, 500)
 
-    document.getElementById('show-snackbar').addEventListener('click', function() {
-      snackbar.open = !snackbar.open
-    })
+      snackbar.addEventListener('accept', function() { snackbar.open = false })
+      snackbarToggle.addEventListener('click', function() { snackbar.open = !snackbar.open })
+      snackbarMessage.addEventListener('blur', function() { snackbar.message = this.value })
+      snackbarAction.addEventListener('blur', function() { snackbar.action = this.value })
+      snackbarDuration.addEventListener('blur', function() { snackbar.duration = this.value })
+    });
   </script>
 </body>
 </html>
