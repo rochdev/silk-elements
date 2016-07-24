@@ -9,16 +9,17 @@ SilkSnackbarProto.createdCallback = render
 SilkSnackbarProto.attributeChangedCallback = attributeChanged
 
 function render () {
-  const self = this
   const shadow = this.createShadowRoot()
   const container = createElement.call(this, 'div', 'container')
   const message = createElement.call(this, 'div', 'message')
   const posPlayer = jump(this, [0, '100%', 0], [0, 0, 0])
   const fadePlayer = fade(container, 0, 1, { delay: 100 })
-  let open
-  let action
-  let actionText
-  let messageText
+  let open = null
+  let action = null
+  let actionText = null
+  let messageText = null
+  let duration = 0
+  let currentTimeout = null
 
   css(shadow, fs.readFileSync(__dirname + '/silk-snackbar.css', 'utf8'))
 
@@ -35,6 +36,9 @@ function render () {
         posPlayer.playbackRate = open ? 1 : -1
         posPlayer.play()
 
+        clearTimeout(currentTimeout)
+        duration && (currentTimeout = open ? setTimeout(() => (this.open = false), duration) : null)
+
         open && fadePlayer.play()
       }
     },
@@ -43,7 +47,7 @@ function render () {
       get: () => messageText,
       set: value => {
         messageText = value
-        message.innerText = value
+        message.innerText = value || ''
       }
     },
 
@@ -51,15 +55,14 @@ function render () {
       get: () => actionText,
       set: value => {
         actionText = value
-
-        if (actionText !== null) {
-          action || (action = container.appendChild(createAction.call(this)))
-          action.querySelector('#button').innerText = actionText
-        } else if (action) {
-          container.removeChild(action)
-          action = null
-        }
+        action && container.removeChild(action)
+        action = actionText !== null ? container.appendChild(createAction.call(this, actionText)) : null
       }
+    },
+
+    duration: {
+      get: () => duration,
+      set: value => (duration = parseInt(value, 10))
     }
   })
 
@@ -68,6 +71,7 @@ function render () {
 
   this.message = this.getAttribute('message')
   this.action = this.getAttribute('action')
+  this.duration = this.getAttribute('duration')
 }
 
 function attributeChanged (name, previousValue, nextValue) {
@@ -83,10 +87,14 @@ function attributeChanged (name, previousValue, nextValue) {
     case 'action':
       this.action = nextValue
       break
+
+    case 'duration':
+      this.duration = nextValue
+      break
   }
 }
 
-function createAction () {
+function createAction (text) {
   const action = createElement('div', 'action')
   const button = createElement('silk-button', 'button')
 
@@ -95,6 +103,8 @@ function createAction () {
     this.dispatchEvent(event)
     this.open = false
   })
+
+  button.innerText = text
 
   action.appendChild(button)
 
