@@ -13,7 +13,7 @@ function render () {
   const shadow = this.createShadowRoot()
   const container = createElement.call(this, 'div', 'container')
   const message = createElement.call(this, 'div', 'message')
-  const posPlayer = jump(this, [0, 48, 0], [0, 0, 0])
+  const posPlayer = jump(this, [0, '100%', 0], [0, 0, 0])
   const fadePlayer = fade(container, 0, 1, { delay: 100 })
   let open
   let action
