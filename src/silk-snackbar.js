@@ -64,11 +64,10 @@ function render () {
   })
 
   container.appendChild(message)
+  shadow.appendChild(container)
 
   this.message = this.getAttribute('message')
   this.action = this.getAttribute('action')
-
-  shadow.appendChild(container)
 }
 
 function attributeChanged (name, previousValue, nextValue) {
