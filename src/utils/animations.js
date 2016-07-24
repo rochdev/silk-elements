@@ -24,8 +24,8 @@ export const fade = (element, from = 0, to = 1, options) => {
 
 export const jump = (element, from = [0, 0, 0], to = [0, 0, 0], options) => {
   const frames = new KeyframeEffect(element, [
-    { transform: `translate3d(${from.map(val => val + 'px').join(',')})` },
-    { transform: `translate3d(${to.map(val => val + 'px').join(',')})` }
+    { transform: `translate3d(${from.map(pixelize).join(',')})` },
+    { transform: `translate3d(${to.map(pixelize).join(',')})` }
   ], assign({
     easing: 'ease-out',
     duration: 225,
@@ -33,4 +33,8 @@ export const jump = (element, from = [0, 0, 0], to = [0, 0, 0], options) => {
   }, options))
 
   return new Animation(frames, document.timeline)
+}
+
+function pixelize (value) {
+  return typeof value === 'number' ? value + 'px' : value
 }
