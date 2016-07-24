@@ -1,0 +1,24 @@
+body {
+  font-family: Roboto, sans-serif;
+}
+
+silk-button {
+  margin: 12px;
+}
+
+silk-button.primary {
+  --silk-button-color: var(--silk-blue-500);
+}
+
+silk-button[raised].primary {
+  --silk-button-background: var(--silk-blue-500);
+  --silk-button-color: white;
+}
+
+silk-input.primary {
+  --silk-input-focus-color: var(--silk-blue-500);
+}
+
+silk-snackbar.primary {
+  --silk-snackbar-action-color: var(--silk-blue-400);
+}

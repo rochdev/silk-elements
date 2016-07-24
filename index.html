@@ -10,26 +10,11 @@
   <script src="node_modules/webcomponents.js/webcomponents.js"></script>
   <script src="node_modules/web-animations-js/web-animations-next.min.js"></script>
 
-  <style>
-    body {
-      font-family: Roboto, sans-serif;
-    }
+  <link href="theme.css" rel="stylesheet" />
 
+  <style>
     silk-button {
       margin: 12px;
-    }
-
-    silk-button.primary {
-      --silk-button-color: var(--silk-blue-500);
-    }
-
-    silk-button[raised].primary {
-      --silk-button-background: var(--silk-blue-500);
-      --silk-button-color: white;
-    }
-
-    silk-input.primary {
-      --silk-input-focus-color: var(--silk-blue-500);
     }
 
     .ripple-demo {
@@ -99,11 +84,11 @@
 
   <h3>&lt;silk-snackbar&gt;</h3>
 
-  <silk-button id="show-snackbar">
+  <silk-button raised id="show-snackbar">
     Toggle
   </silk-button>
 
-  <silk-snackbar id="snackbar-1" message="Testing content" action="undo"></silk-snackbar>
+  <silk-snackbar id="snackbar-1" class="primary" message="Testing content" action="undo"></silk-snackbar>
 
   <script src="dist/silk.js"></script>
 
